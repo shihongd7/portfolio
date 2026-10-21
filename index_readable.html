@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="#080a12" name="theme-color"/>
+  <meta content="Shihong Ding — Creative Developer, game programmer and entertainment technology student." name="description"/>
+  <title>
+   Shihong Ding — Creative Developer
+  </title>
+  <style>
+   :root {
+  --bg: #080a12;
+  --panel: #111522;
+  --ink: #f3f5ff;
+  --muted: #99a1bb;
+  --line: #293047;
+  --violet: #aa8cff;
+  --cyan: #70e3ee;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  font: inherit;
+}
+::selection {
+  background: #8b6df1;
+  color: white;
+}
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .17;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
+  z-index: 10;
+}
+.glow {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(65px);
+  border-radius: 50%;
+  opacity: .42;
+}
+.g1 {
+  width: 430px;
+  height: 430px;
+  background: #6942c7;
+  top: 15%;
+  right: 8%;
+}
+.g2 {
+  width: 260px;
+  height: 260px;
+  background: #007a9d;
+  top: 46%;
+  right: 27%;
+}
+.wrap {
+  width: min(1160px,calc(100% - 48px));
+  margin: auto;
+}
+.nav {
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 5;
+}
+.logo {
+  font-weight: 900;
+  font-size: 22px;
+  letter-spacing: -1.5px;
+}
+.logo span {
+  color: var(--cyan);
+}
+.navlinks {
+  display: flex;
+  gap: 30px;
+  color: #c3c8db;
+  font-size: 13px;
+}
+.navlinks a:hover,.textlink:hover {
+  color: var(--cyan);
+}
+.pill {
+  border: 1px solid #515a78;
+  padding: 11px 18px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: .2s;
+}
+.pill:hover {
+  background: #20283c;
+  transform: translateY(-2px);
+}
+.hero {
+  min-height: 680px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  position: relative;
+}
+.eyebrow {
+  color: var(--cyan);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-size: clamp(58px,7.7vw,108px);
+  line-height: 1.01;
+  letter-spacing: -7px;
+  margin: 23px 0;
+}
+.gradient {
+  background: linear-gradient(95deg,#e8dcff 0%,#a98cff 45%,#70e3ee 100%);
+  color: transparent;
+  background-clip: text;
+}
+.hero p {
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 17px;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 35px;
+}
+.primary {
+  background: #eae6ff;
+  color: #141124;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  transition: .25s;
+}
+.primary:hover {
+  background: #bca8ff;
+  transform: translateY(-3px);
+}
+.textlink {
+  font-size: 13px;
+  font-weight: 700;
+  color: #cbd1e3;
+}
+.orbwrap {
+  position: relative;
+  min-height: 480px;
+  display: grid;
+  place-items: center;
+  perspective: 850px;
+}
+.orb {
+  width: min(380px,75vw);
+  height: min(380px,75vw);
+  border-radius: 48% 52% 61% 39%/49% 40% 60% 51%;
+  background: radial-gradient(circle at 25% 24%,#c4f8ff 0%,#8d7bef 21%,#433e9a 49%,#101936 68%,#70dbed 83%,#9a79f9 100%);
+  box-shadow: inset -26px -22px 50px #040618a8,inset 15px 15px 55px #f3dfff88,0 0 75px #7959d344,0 0 150px #54bfdc22;
+  animation: float 7s ease-in-out infinite,shape 13s ease-in-out infinite;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.orb:after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border: 1px solid #e7f9ff66;
+  border-radius: inherit;
+  transform: rotate(-30deg);
+}
+.ring {
+  position: absolute;
+  width: 108%;
+  height: 47%;
+  border: 1px solid #8ee9ff80;
+  border-radius: 50%;
+  transform: rotate(-29deg);
+  box-shadow: 0 0 30px #b197ff35;
+}
+.ring.r2 {
+  width: 95%;
+  height: 90%;
+  transform: rotate(63deg);
+  border-color: #ae94ff45;
+}
+.floatlabel {
+  position: absolute;
+  border: 1px solid #515d83;
+  background: #131a2dcc;
+  backdrop-filter: blur(10px);
+  border-radius: 9px;
+  padding: 9px 13px;
+  font: 700 11px ui-monospace,monospace;
+  letter-spacing: 1px;
+}
+.fl1 {
+  top: 18%;
+  right: 0;
+}
+.fl2 {
+  bottom: 17%;
+  left: 2%;
+}
+.scrollhint {
+  font: 11px ui-monospace,monospace;
+  color: #8d97b3;
+  letter-spacing: 2px;
+  padding: 22px 0 50px;
+}
+.section {
+  padding: 110px 0;
+}
+.sectiontop {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 42px;
+}
+.section h2 {
+  font-size: clamp(36px,5vw,62px);
+  letter-spacing: -3px;
+  line-height: 1.08;
+  margin: 12px 0;
+}
+.sub {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 510px;
+}
+.index {
+  color: var(--cyan);
+  font: 700 12px ui-monospace,monospace;
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 22px;
+}
+.project {
+  background: linear-gradient(145deg,#171b2b,#0e121d);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform .3s,border-color .3s;
+  position: relative;
+}
+.project:hover {
+  transform: translateY(-6px);
+  border-color: #8177bc;
+}
+.art {
+  height: 270px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: radial-gradient(circle at 70% 20%,#513a8d 0%,transparent 45%),linear-gradient(135deg,#14192b,#25264c);
+}
+.art.cow {
+  background: radial-gradient(circle at 55% 50%,#a475f355,transparent 55%),linear-gradient(135deg,#1a1734,#32225c);
+}
+.art.vr {
+  background: radial-gradient(circle at 50% 45%,#68e8ee55,transparent 55%),linear-gradient(135deg,#0b2234,#1c1944);
+}
+.art.platform {
+  background: linear-gradient(155deg,#173044,#1c1b40);
+}
+.art.math {
+  background: radial-gradient(circle,#1b6a8455,transparent 55%),#111c2c;
+}
+.art.ml {
+  background: radial-gradient(circle,#8d5bd666,transparent 55%),#16142d;
+}
+.symbol {
+  font-size: 92px;
+  filter: drop-shadow(0 12px 30px #0008);
+  transform: rotate(-10deg);
+  transition: transform .4s;
+}
+.project:hover .symbol {
+  transform: rotate(0) scale(1.1);
+}
+.art .gridline {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);
+  background-size: 35px 35px;
+  mask-image: linear-gradient(transparent,#000);
+}
+.projectbody {
+  padding: 26px;
+}
+.projectbody h3 {
+  font-size: 24px;
+  letter-spacing: -.8px;
+  margin: 10px 0 7px;
+}
+.projectbody p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0 0 20px;
+}
+.tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.tag {
+  border: 1px solid #38405a;
+  color: #bfc5d9;
+  padding: 5px 9px;
+  border-radius: 99px;
+  font-size: 10px;
+  letter-spacing: .4px;
+}
+.project .num {
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  color: #d8def1;
+  font: 12px ui-monospace,monospace;
+}
+.project .arrow {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 20px;
+}
+.details {
+  margin-top: 20px;
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  color: #b4bdd5;
+  font-size: 13px;
+}
+.details ul {
+  padding-left: 17px;
+  margin: 0;
+}
+.details li {
+  margin: 6px 0;
+}
+.details a {
+  color: var(--cyan);
+  text-decoration: underline;
+}
+.aboutgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+.aboutcopy {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #d0d5e5;
+}
+.timeline {
+  border-left: 1px solid #465070;
+  padding-left: 26px;
+}
+.time {
+  position: relative;
+  margin-bottom: 33px;
+}
+.time:before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--cyan);
+  left: -31px;
+  top: 8px;
+  box-shadow: 0 0 14px #70e3ee;
+}
+.time h3 {
+  margin: 0;
+  font-size: 17px;
+}
+.time p {
+  margin: 5px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skills span {
+  border: 1px solid #333e58;
+  background: #121827;
+  border-radius: 9px;
+  padding: 11px 15px;
+  color: #d5d9e8;
+  font-size: 13px;
+}
+.contact {
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 120px 0 80px;
+}
+.contact h2 {
+  font-size: clamp(44px,8vw,95px);
+  letter-spacing: -5px;
+  margin: 14px 0;
+}
+.contact p {
+  color: var(--muted);
+}
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  color: #8892aa;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .7s,transform .7s;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-24px) rotate(8deg);
+  }
+}
+@keyframes shape {
+  50% {
+    border-radius: 58% 42% 39% 61%/45% 62% 38% 55%;
+  }
+}
+@media (max-width:760px) {
+  .nav {
+    height: 72px;
+  }
+  .navlinks {
+    gap: 13px;
+    font-size: 11px;
+  }
+  .nav .pill {
+    display: none;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 65px;
+  }
+  .hero h1 {
+    letter-spacing: -4px;
+  }
+  .orbwrap {
+    min-height: 370px;
+    grid-row: 2;
+  }
+  .orb {
+    width: 280px;
+    height: 280px;
+  }
+  .g1 {
+    right: -50px;
+  }
+  .projects,.aboutgrid {
+    grid-template-columns: 1fr;
+  }
+  .aboutgrid {
+    gap: 32px;
+  }
+  .section {
+    padding: 75px 0;
+  }
+  .art {
+    height: 230px;
+  }
+  .sectiontop {
+    align-items: start;
+  }
+  .footer {
+    gap: 12px;
+    flex-direction: column;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+  </style>
+ </head>
+ <body>
+  <div aria-hidden="true" class="grain">
+  </div>
+  <header class="wrap nav">
+   <a class="logo" href="#home">
+    SD
+    <span>
+     .
+    </span>
+   </a>
+   <nav aria-label="Main navigation" class="navlinks">
+    <a href="#Project">
+     Project
+    </a>
+    <a href="#about">
+     About
+    </a>
+    <a href="#skills">
+     Skills
+    </a>
+    <a href="#contact">
+     Contact
+    </a>
+   </nav>
+   <a class="pill" href="resume.pdf" rel="noopener" target="_blank">
+    RESUME ↗
+   </a>
+  </header>
+  <main>
+   <section class="wrap hero" id="home">
+    <div class="glow g1">
+    </div>
+    <div class="glow g2">
+    </div>
+    <div style="position:relative;z-index:2">
+     <div class="eyebrow">
+      GAME PROGRAMMER / GAME TESTER
+     </div>
+     <h1>
+      Building
+      <br/>
+      <span class="gradient">
+       playable
+      </span>
+      <br/>
+      worlds.
+     </h1>
+     <p>
+      My name is
+      <strong style="color:#fff">
+       Shihong Ding
+      </strong>
+      , currently taking entertainment technology master program at Carnegie Mellon University. I got my B.S. degree at University of Washington-Seattle Campus, majoring in Applied Computational Mathematical Science. I was focusing on learning math models and algorithms during my undergrad. I also took several CSE courses so that I'm familiar with Java, Python, adn C#. I bring code, interaction, and imagination together.
+     </p>
+     <div class="actions">
+      <a class="primary" href="#Project">
+       EXPLORE MY PROJECTS
+       <span>
+        ↗
+       </span>
+      </a>
+      <a class="textlink" href="#contact">
+       GET IN TOUCH ↗
+      </a>
+     </div>
+    </div>
+    <div aria-label="Decorative animated abstract 3D-style sphere" class="orbwrap" id="orbwrap">
+     <div class="ring">
+     </div>
+     <div class="ring r2">
+     </div>
+     <div class="orb" id="orb">
+     </div>
+     <div class="floatlabel fl1">
+      UNITY / C#
+     </div>
+     <div class="floatlabel fl2">
+      CREATIVE TECHNOLOGY
+     </div>
+    </div>
+   </section>
+   <div class="wrap scrollhint">
+    ↓   SCROLL TO EXPLORE
+   </div>
+   <section class="wrap section" id="Project">
+    <div class="sectiontop reveal">
+     <div>
+      <div class="index">
+       01 / SELECTED PROJECTS
+      </div>
+      <h2>
+       Ideas into
+       <span class="gradient">
+        experiences.
+       </span>
+      </h2>
+      <p class="sub">
+       A selection of interactive games, virtual reality experiments, and computational projects.
+      </p>
+     </div>
+     <span class="index">
+      2022 — 2026
+     </span>
+    </div>
+    <div class="projects">
+     <article class="project reveal">
+      <div class="art vr">
+       <div class="gridline">
+       </div>
+       <span class="num">
+        01 / VR GAME
+       </span>
+       <span aria-hidden="true" class="symbol">
+        ✋
+       </span>
+       <span class="arrow">
+        ↗
+       </span>
+      </div>
+      <div class="projectbody">
+       <div class="index">
+        CARNEGIE MELLON UNIVERSITY
+       </div>
+       <h3>
+        Give Mummy a Hand
+       </h3>
+       <p>
+        A VR game built around custom hand-shape interactions, gameplay systems, and collaborative level design.
+       </p>
+       <div class="tags">
+        <span class="tag">
+         UNITY
+        </span>
+        <span class="tag">
+         C#
+        </span>
+        <span class="tag">
+         VR
+        </span>
+        <span class="tag">
+         HAND TRACKING
+        </span>
+       </div>
+       <div class="details">
+        <ul>
+         <li>
+          Designed game mechanics and story background.
+         </li>
+         <li>
+          Tested and designed hand-shape recognition using Meta building blocks.
+         </li>
+         <li>
+          Programmed game structure, audio, and scene managers.
+         </li>
+         <li>
+          Collaborated on level design.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </article>
+     <article class="project reveal">
+      <div class="art cow">
+       <div class="gridline">
+       </div>
+       <span class="num">
+        02 / PHYSICAL INTERACTION
+       </span>
+       <span aria-hidden="true" class="symbol">
+        🐄
+       </span>
+       <span class="arrow">
+        ↗
+       </span>
+      </div>
+      <div class="projectbody">
+       <div class="index">
+        CARNEGIE MELLON UNIVERSITY
+       </div>
+       <h3>
+        WOW COW
+       </h3>
+       <p>
+        An adaptive-controller game exploring playful physical input through modified air pumps.
+       </p>
+       <div class="tags">
+        <span class="tag">
+         UNITY
+        </span>
+        <span class="tag">
+         C#
+        </span>
+        <span class="tag">
+         GAME MECHANICS
+        </span>
+        <span class="tag">
+         CONTROLLERS
+        </span>
+       </div>
+       <div class="details">
+        <ul>
+         <li>
+          Worked as a programmer on a team.
+         </li>
+         <li>
+          Designed game mechanics and an intuitive air-pump controller.
+         </li>
+         <li>
+          Built game-management scripts and UI elements in Unity.
+         </li>
+         <li>
+          Created simple keyframe animations.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </article>
+     <article class="project reveal">
+      <div class="art platform">
+       <div class="gridline">
+       </div>
+       <span class="num">
+        03 / GAME DEVELOPMENT
+       </span>
+       <span aria-hidden="true" class="symbol">
+        🎮
+       </span>
+       <span class="arrow">
+        ↗
+       </span>
+      </div>
+      <div class="projectbody">
+       <div class="index">
+        UNIVERSITY OF WASHINGTON
+       </div>
+       <h3>
+        2D Game Projects
+       </h3>
+       <p>
+        2D platformer and top-down shooter projects exploring physics, movement, and gameplay development.
+       </p>
+       <div class="tags">
+        <span class="tag">
+         UNITY
+        </span>
+        <span class="tag">
+         2D PHYSICS
+        </span>
+        <span class="tag">
+         GAME DESIGN
+        </span>
+       </div>
+       <div class="details">
+        Play the published projects:
+        <a href="https://dxiu.itch.io/final" rel="noopener" target="_blank">
+         Platformer ↗
+        </a>
+        ·
+        <a href="https://dxiu.itch.io/top-down-shooter-final" rel="noopener" target="_blank">
+         Top-down shooter ↗
+        </a>
+       </div>
+      </div>
+     </article>
+     <article class="project reveal">
+      <div class="art ml">
+       <div class="gridline">
+       </div>
+       <span class="num">
+        04 / MACHINE LEARNING
+       </span>
+       <span aria-hidden="true" class="symbol">
+        ◈
+       </span>
+       <span class="arrow">
+        ↗
+       </span>
+      </div>
+      <div class="projectbody">
+       <div class="index">
+        UNIVERSITY OF WASHINGTON
+       </div>
+       <h3>
+        FashionMNIST Classifier
+       </h3>
+       <p>
+        Fully connected neural network image classification with optimizer and normalization experiments.
+       </p>
+       <div class="tags">
+        <span class="tag">
+         PYTORCH
+        </span>
+        <span class="tag">
+         NEURAL NETWORKS
+        </span>
+        <span class="tag">
+         PYTHON
+        </span>
+       </div>
+       <div class="details">
+        <ul>
+         <li>
+          Implemented an FCN with SGD and Adam optimizers.
+         </li>
+         <li>
+          Improved test accuracy from 82.5% to 88.6% using Adam.
+         </li>
+         <li>
+          Experimented with initialization and batch normalization.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </article>
+     <article class="project reveal">
+      <div class="art math">
+       <div class="gridline">
+       </div>
+       <span class="num">
+        05 / SCIENTIFIC COMPUTING
+       </span>
+       <span aria-hidden="true" class="symbol">
+        〰
+       </span>
+       <span class="arrow">
+        ↗
+       </span>
+      </div>
+      <div class="projectbody">
+       <div class="index">
+        UNIVERSITY OF WASHINGTON
+       </div>
+       <h3>
+        Submarine Tracking
+       </h3>
+       <p>
+        Signal-processing pipeline for reconstructing motion from noisy three-dimensional acoustic data.
+       </p>
+       <div class="tags">
+        <span class="tag">
+         FFT
+        </span>
+        <span class="tag">
+         GAUSSIAN FILTER
+        </span>
+        <span class="tag">
+         3D DATA
+        </span>
+       </div>
+       <div class="details">
+        <ul>
+         <li>
+          Identified dominant frequencies with FFT.
+         </li>
+         <li>
+          Filtered noise in the frequency domain.
+         </li>
+         <li>
+          Reconstructed and visualized object trajectories over time.
+         </li>
+        </ul>
+       </div>
+      </div>
+     </article>
+    </div>
+   </section>
+   <section class="wrap section" id="about">
+    <div class="index reveal">
+     02 / ABOUT ME
+    </div>
+    <h2 class="reveal">
+     The person
+     <span class="gradient">
+      behind the code.
+     </span>
+    </h2>
+    <div class="aboutgrid">
+     <div class="reveal">
+      <p class="aboutcopy">
+       I work at the intersection of
+       <strong>
+        game development, interactive technology, and computational problem-solving.
+       </strong>
+       My background in scientific computing informs how I build systems, while my current studies in entertainment technology push me to create more engaging experiences.
+      </p>
+      <p class="sub">
+       Currently pursuing a Master of Entertainment Technology at Carnegie Mellon University.
+      </p>
+     </div>
+     <div class="timeline reveal">
+      <div class="time">
+       <h3>
+        Carnegie Mellon University
+       </h3>
+       <p>
+        Master of Entertainment Technology · Aug 2026 – May 2028 (expected)
+       </p>
+      </div>
+      <div class="time">
+       <h3>
+        University of Washington
+       </h3>
+       <p>
+        B.S. Applied Computational Mathematical Science — Scientific Computing &amp; Numerical Algorithm · Sep 2022 – Jun 2026
+       </p>
+      </div>
+      <div class="time">
+       <h3>
+        Perfect World · Steam CN QA Department
+       </h3>
+       <p>
+        Intern · Jun 2025 – Sep 2025
+       </p>
+       <p>
+        App test cases, integration and API testing, performance testing, network analysis, and collaboration with developers.
+       </p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="wrap section" id="skills">
+    <div class="index reveal">
+     03 / TOOLBOX
+    </div>
+    <h2 class="reveal">
+     Things I
+     <span class="gradient">
+      work with.
+     </span>
+    </h2>
+    <p class="sub reveal">
+     Programming, creative development, and technical workflows.
+    </p>
+    <div class="skills reveal">
+     <span>
+      Unity
+     </span>
+     <span>
+      C# (Unity projects)
+     </span>
+     <span>
+      Python
+     </span>
+     <span>
+      C++
+     </span>
+     <span>
+      Java
+     </span>
+     <span>
+      R
+     </span>
+     <span>
+      PyTorch
+     </span>
+     <span>
+      MATLAB
+     </span>
+     <span>
+      Jupyter Notebook
+     </span>
+     <span>
+      RStudio
+     </span>
+     <span>
+      VS Code
+     </span>
+     <span>
+      IntelliJ
+     </span>
+     <span>
+      Game Mechanics
+     </span>
+     <span>
+      VR Hand Tracking
+     </span>
+     <span>
+      API Testing
+     </span>
+     <span>
+      Docker (QA workflow)
+     </span>
+    </div>
+   </section>
+   <section class="contact" id="contact">
+    <div class="wrap reveal">
+     <div class="index">
+      04 / SAY HELLO
+     </div>
+     <h2>
+      Let's make
+      <span class="gradient">
+       something.
+      </span>
+     </h2>
+     <p>
+      If you have something to discuss or need more information, feel free to contact me through email!
+     </p>
+     <div class="actions" style="justify-content:center">
+      <a class="primary" href="mailto:d939891516@163.com">
+       SEND AN EMAIL ↗
+      </a>
+      <a class="textlink" href="resume.pdf" rel="noopener" target="_blank">
+       VIEW RESUME ↗
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="wrap footer">
+   <span>
+    ©
+    <span id="year">
+    </span>
+    Shihong Ding
+   </span>
+   <span>
+    Feel Free to Reach Out ✦
+   </span>
+  </footer>
+  <script>
+   document.getElementById('year').textContent = new Date().getFullYear();
+
+const observer = new IntersectionObserver(
+  entries => entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  }),
+  { threshold: .1 }
+);
+
+document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+
+const orb = document.getElementById('orbwrap');
+
+if (matchMedia('(pointer:fine) and (prefers-reduced-motion:no-preference)').matches) {
+  orb.addEventListener('pointermove', event => {
+    let rect = orb.getBoundingClientRect();
+    let x = (event.clientX - rect.left) / rect.width - .5;
+    let y = (event.clientY - rect.top) / rect.height - .5;
+    orb.style.transform = `rotateY(${x * 10}deg) rotateX(${-y * 10}deg)`;
+  });
+
+  orb.addEventListener('pointerleave', () => orb.style.transform = '');
+}
+  </script>
+ </body>
+</html>
+
