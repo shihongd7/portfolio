@@ -530,6 +530,9 @@ button {
 .project-cover-link {position:absolute;inset:0;z-index:3;border-radius:18px;}
 .project-cover-link:focus-visible {outline:3px solid var(--cyan);outline-offset:-4px;}
 .project:has(.project-cover-link):hover .art img {transform:scale(1.045);}
+.project-thumb{width:100%;height:100%;object-fit:cover;position:relative;z-index:1;display:block;transition:transform .35s ease;}
+.thumb-fallback{position:relative;z-index:1;display:grid;place-items:center;width:100%;height:100%;}
+.thumb-fallback[hidden]{display:none !important;}
 </style>
 </head>
 <body>
@@ -690,14 +693,12 @@ button {
 </div>
 <a aria-label="View Give Mummy a Hand project details" class="project-cover-link" href="give-mummy-a-hand.html"></a></article>
 <article class="project reveal">
-<div class="art cow">
-<div class="gridline">
-</div>
+<div class="art cow" style="background:linear-gradient(145deg,#22150d,#3a2412);">
+<img alt="WOW COW round cover art" class="project-thumb" onerror="this.style.display='none';this.nextElementSibling.hidden=false;" src="round1cover.jpg"/>
+<div class="thumb-fallback" hidden><span aria-hidden="true" class="symbol">🐄</span></div>
+<div class="gridline"></div>
 <span class="num">
         02 / PHYSICAL INTERACTION
-       </span>
-<span aria-hidden="true" class="symbol">
-        🐄
        </span>
 <span class="arrow">
         ↗
@@ -711,40 +712,24 @@ button {
         WOW COW
        </h3>
 <p>
-        An adaptive-controller game exploring playful physical input through modified air pumps.
+        A two-player party game using a modified air pump and Xbox Adaptive Controller to make balloon repair feel physical and playful.
        </p>
 <div class="tags">
-<span class="tag">
-         UNITY
-        </span>
-<span class="tag">
-         C#
-        </span>
-<span class="tag">
-         GAME MECHANICS
-        </span>
-<span class="tag">
-         CONTROLLERS
-        </span>
+<span class="tag">UNITY</span>
+<span class="tag">C#</span>
+<span class="tag">XBOX ADAPTIVE CONTROLLER</span>
+<span class="tag">TANGIBLE INTERACTION</span>
 </div>
 <div class="details">
 <ul>
-<li>
-          Worked as a programmer on a team.
-         </li>
-<li>
-          Designed game mechanics and an intuitive air-pump controller.
-         </li>
-<li>
-          Built game-management scripts and UI elements in Unity.
-         </li>
-<li>
-          Created simple keyframe animations.
-         </li>
+<li>Designed a two-player pumping game around tangible input and competition.</li>
+<li>Modified a real air pump by hiding a clicker controller in its base.</li>
+<li>Implemented five scoring rounds with changing targets and pacing.</li>
+<li>Worked on physical interaction design and pump detection logic.</li>
 </ul>
 </div>
 </div>
-</article>
+<a aria-label="View WOW COW project details" class="project-cover-link" href="wow-cow.html"></a></article>
 <article class="project reveal">
 <div class="art platform">
 <div class="gridline">
